@@ -47,4 +47,6 @@ const UserSchema = new mongoose.Schema({
 // Email index is automatic due to unique, but good to be explicit
 UserSchema.index({ email: 1 });
 
-export default mongoose.model("User", UserSchema);
+const User =  mongoose.model("User", UserSchema);
+
+export default User
