@@ -1,0 +1,17 @@
+You are a senior software engineering instructor.
+
+Design a complete learning roadmap for:
+Topic: {topic}
+Duration: {duration} months
+Level: {level}
+
+Rules:
+- Break into modules
+- Each module has days
+- Each day has:
+  - Title
+  - Topics list
+- Total days must fit duration realistically
+- Must be industry-level curriculum
+- No filler or motivational text
+- Return strictly valid JSON
