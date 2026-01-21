@@ -1,0 +1,158 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+.dashboard-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f9fafb, #f3f4f6);
+  padding: 30px 16px;
+}
+
+.dashboard-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.dashboard-header {
+  margin-bottom: 30px;
+}
+
+.header-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header-title h1 {
+  font-size: 32px;
+  margin: 0;
+}
+
+.dashboard-header p {
+  color: #666;
+  margin-top: 8px;
+}
+
+.state-center {
+  text-align: center;
+  padding: 60px 20px;
+  color: #666;
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+  margin-bottom: 12px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.error-box {
+  background: #fee2e2;
+  border: 1px solid #fca5a5;
+  color: #7f1d1d;
+  padding: 12px;
+  border-radius: 6px;
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.course-card {
+  background: white;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+}
+
+.course-card-header {
+  background: linear-gradient(90deg, #2563eb, #1d4ed8);
+  color: white;
+  padding: 16px;
+}
+
+.course-card-header h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.course-card-body {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.label {
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #6b7280;
+}
+
+.value {
+  font-weight: 500;
+}
+
+.duration {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.roadmap {
+  border-top: 1px solid #e5e7eb;
+  padding-top: 10px;
+}
+
+.roadmap-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+.roadmap-days {
+  color: #2563eb;
+  font-weight: 500;
+}
+
+.course-card-footer {
+  padding: 16px;
+  background: #f9fafb;
+  border-top: 1px solid #e5e7eb;
+}
+
+.course-card-footer button {
+  width: 100%;
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.course-card-footer button:hover {
+  background: #1d4ed8;
+}
+
+.course-card-date {
+  font-size: 12px;
+  color: #6b7280;
+  padding: 10px 16px;
+  border-top: 1px solid #e5e7eb;
+}

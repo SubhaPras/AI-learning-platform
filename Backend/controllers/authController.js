@@ -3,9 +3,7 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { configDotenv } from "dotenv";
 
-
-
-configDotenv()
+configDotenv();
 
 export const register = async (req, res) => {
   try {
@@ -34,13 +32,11 @@ export const register = async (req, res) => {
       password: hashedPassword,
     });
 
-     const token = jwt.sign(
-      { id: user._id },
-      process.env.JWT_SECRET,
-      { expiresIn: "24h" },
-    );
+    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
+      expiresIn: "24h",
+    });
 
-       const userResponse = {
+    const userResponse = {
       id: user._id,
       name: user.name,
       email: user.email,
@@ -50,7 +46,7 @@ export const register = async (req, res) => {
       success: true,
       message: "User registered successfully",
       user: userResponse,
-      token
+      token,
     });
   } catch (error) {
     console.error("Registration error:", error);
@@ -60,8 +56,6 @@ export const register = async (req, res) => {
     });
   }
 };
-
-
 
 export const login = async (req, res) => {
   try {
@@ -90,25 +84,28 @@ export const login = async (req, res) => {
       });
     }
 
-    const token = jwt.sign(
-      { id: user._id },
-      process.env.JWT_SECRET,
-      { expiresIn: "24h" },
-    );
+    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
+      expiresIn: "24h",
+    });
 
-       const userResponse = {
+    const userResponse = {
       id: user._id,
       name: user.name,
       email: user.email,
     };
 
-
-    res.json({
-      success: true,
-      message: "Login successful",
-      token,
-      user: userResponse,
-    });
+    res
+      .cookies("token", token, {
+        httpOnly: true,
+        sameSite: "lax",
+        secure: false,
+      })
+      .json({
+        success: true,
+        message: "Login successful",
+        token,
+        user: userResponse,
+      });
   } catch (error) {
     console.error("Login error:", error);
     res.status(500).json({

@@ -48,14 +48,14 @@ const CourseSchema = new mongoose.Schema({
 
   createdBy: { 
     type: mongoose.Schema.Types.ObjectId, 
-    ref: 'User',  // This links to User model
+    ref: 'User',  
     required: true
   },
 }, { 
-  timestamps: true  // Adds createdAt and updatedAt
+  timestamps: true  
 });
 
-// Add indexes for common queries
+
 CourseSchema.index({ topic: 1 });
 CourseSchema.index({ createdBy: 1 });
 
